@@ -35,7 +35,7 @@ const ComingSoon = () => {
         }
         (async () => {
           try {
-            const res = await fetch("http://localhost:4000/api/save-contact", {
+            const res = await fetch("https://vanngonma.onrender.com/api/save-contact", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ phone: resolved, source }),
@@ -90,7 +90,7 @@ const ComingSoon = () => {
     // send phone to backend if available (best-effort) and report failures
     (async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/save-contact", {
+        const res = await fetch("https://vanngonma.onrender.com/api/save-contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ phone: toSend, source }),
