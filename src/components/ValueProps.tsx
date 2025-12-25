@@ -30,7 +30,7 @@ const ValueProps = () => {
       <div className="container">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
-            Tại sao chọn Vẫn Ngon Mà?
+            Tại sao chọn Vẫn Ngon Nè?
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Tốt cho bạn, tốt cho xã hội

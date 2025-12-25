@@ -11,7 +11,7 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
                 <Leaf className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-lg font-bold">Vẫn Ngon Mà</span>
+              <span className="text-lg font-bold">Vẫn Ngon Nè</span>
             </a>
             <p className="text-sm text-background/70 hidden md:block">Cùng tham gia phong trào chống lãng phí thực phẩm.</p>
           </div>
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-6 border-t border-background/10 mt-6">
-          <p className="text-sm text-background/60">© 2024 Vẫn Ngon Mà. Bảo lưu mọi quyền.</p>
+          <p className="text-sm text-background/60">© 2024 Vẫn Ngon Nè. Bảo lưu mọi quyền.</p>
         </div>
       </div>
     </footer>

@@ -196,7 +196,7 @@ const ComingSoon = () => {
                 Bạn đã có trong danh sách!
               </h2>
               <p className="text-primary-foreground/80">
-                Chúng tôi sẽ gửi SMS cho bạn khi Vẫn Ngon Mà ra mắt tại Hà Nội. Hãy sẵn sàng để tiết kiệm!
+                Chúng tôi sẽ gửi SMS cho bạn khi Vẫn Ngon Nè ra mắt tại Hà Nội. Hãy sẵn sàng để tiết kiệm!
               </p>
             </div>
           )}
@@ -222,7 +222,7 @@ const ComingSoon = () => {
       {/* Footer */}
       <footer className="container py-6 text-center">
         <p className="text-sm text-primary-foreground/60">
-          © 2024 Vẫn Ngon Mà. Cùng chống lãng phí thực phẩm.
+          © 2024 Vẫn Ngon Nè. Cùng chống lãng phí thực phẩm.
         </p>
       </footer>
     </div>
