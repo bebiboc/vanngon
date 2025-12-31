@@ -9,6 +9,8 @@ const ComingSoon = () => {
   const [phone, setPhone] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [fromPhone, setFromPhone] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [originalPhone, setOriginalPhone] = useState(""); // tracks the phone to replace when editing
   const { state } = useLocation() as any;
   const source = state?.source ?? "direct";
 
@@ -88,7 +90,8 @@ const ComingSoon = () => {
       return;
     }
     
-    const oldPhone = fromPhone && fromPhone !== toSend ? fromPhone : null;
+    // Use originalPhone when editing, which was captured when user clicked edit
+    const oldPhone = isEditing && originalPhone && originalPhone !== toSend ? originalPhone : null;
     
     // persist locally so user sees they're registered after reload
     try {
@@ -99,6 +102,8 @@ const ComingSoon = () => {
 
     // optimistic UI
     setFromPhone(toSend);
+    setOriginalPhone("");
+    setIsEditing(false);
     setIsSubmitted(true);
     toast({
       title: "You're on the list! 🎉",
@@ -183,9 +188,9 @@ const ComingSoon = () => {
           {/* Phone form */}
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              {fromPhone && (
+              {isEditing && originalPhone && (
                 <p className="text-sm text-primary-foreground/80 mb-2 w-full text-center sm:text-left">
-                  Đang sửa số: <strong>{fromPhone}</strong>
+                  Đang sửa số: <strong>{originalPhone}</strong>
                 </p>
               )}
               <div className="relative flex-1">
@@ -210,7 +215,7 @@ const ComingSoon = () => {
                 />
               </div>
               <Button type="submit" variant="warm" size="lg" disabled={!phone || !isValidVietnamesePhone(phone)}>
-                {fromPhone ? "Cập nhật" : "Thông báo cho tôi"}
+                {isEditing ? "Cập nhật" : "Thông báo cho tôi"}
               </Button>
             </form>
           ) : (
@@ -232,6 +237,8 @@ const ComingSoon = () => {
               <button
                 type="button"
                 onClick={() => {
+                  setOriginalPhone(fromPhone); // capture the current phone to replace
+                  setIsEditing(true);
                   setIsSubmitted(false);
                   setPhone(fromPhone);
                 }}
@@ -263,7 +270,7 @@ const ComingSoon = () => {
       {/* Footer */}
       <footer className="container py-6 text-center">
         <p className="text-sm text-primary-foreground/60">
-          © 2024 Vẫn Ngon. Cùng chống lãng phí thực phẩm.
+          © 2025 Vẫn Ngon. Cùng chống lãng phí thực phẩm.
         </p>
       </footer>
     </div>
