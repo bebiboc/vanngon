@@ -44,6 +44,44 @@ app.post("/api/save-contact", async (req, res) => {
   }
 });
 
+// Update an existing phone number (replace old with new)
+app.post("/api/update-contact", async (req, res) => {
+  console.log("POST /api/update-contact body:", req.body);
+
+  const { oldPhone, newPhone, source } = req.body || {};
+  if (!oldPhone || !newPhone) {
+    return res.status(400).json({ ok: false, message: "oldPhone and newPhone required" });
+  }
+
+  try {
+    ensureDataFile();
+    const raw = await fsPromises.readFile(DATA_FILE, "utf8");
+    let list = JSON.parse(raw || "[]");
+    
+    // Find and remove the old phone entry
+    const oldIndex = list.findIndex(entry => entry.phone === oldPhone);
+    if (oldIndex !== -1) {
+      list.splice(oldIndex, 1);
+    }
+    
+    // Check if new phone already exists
+    if (list.some(entry => entry.phone === newPhone)) {
+      // New phone already exists, just remove the old one
+      await fsPromises.writeFile(DATA_FILE, JSON.stringify(list, null, 2));
+      return res.json({ ok: true, message: "updated (new phone already existed)" });
+    }
+    
+    // Add the new phone entry
+    const entry = { phone: newPhone, source: source || "unknown", ts: new Date().toISOString() };
+    list.push(entry);
+    await fsPromises.writeFile(DATA_FILE, JSON.stringify(list, null, 2));
+    return res.json({ ok: true });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ ok: false, message: "failed to update" });
+  }
+});
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Contacts server listening on http://localhost:${PORT}`);

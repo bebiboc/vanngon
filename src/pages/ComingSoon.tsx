@@ -14,6 +14,7 @@ const ComingSoon = () => {
 
   useEffect(() => {
     const incomingPhone = state?.phone ?? "";
+    const incomingOldPhone = state?.oldPhone ?? null;
     const stored = (() => {
       try {
         return localStorage.getItem("preferredPhone") ?? "";
@@ -35,14 +36,28 @@ const ComingSoon = () => {
         }
         (async () => {
           try {
-            const res = await fetch("https://vanngon.onrender.com/api/save-contact", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ phone: resolved, source }),
-            });
-            if (!res.ok) {
-              console.warn("Failed to save contact", await res.text());
-              toast({ title: "Saved locally", description: "Could not reach the server — saved locally." });
+            // If oldPhone is provided, use update endpoint to replace old with new
+            if (incomingOldPhone && incomingOldPhone !== resolved) {
+              const res = await fetch("https://vanngon.onrender.com/api/update-contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ oldPhone: incomingOldPhone, newPhone: resolved, source }),
+              });
+              if (!res.ok) {
+                console.warn("Failed to update contact", await res.text());
+                toast({ title: "Saved locally", description: "Could not reach the server — saved locally." });
+              }
+            } else {
+              // No old phone, just save as new
+              const res = await fetch("https://vanngon.onrender.com/api/save-contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ phone: resolved, source }),
+              });
+              if (!res.ok) {
+                console.warn("Failed to save contact", await res.text());
+                toast({ title: "Saved locally", description: "Could not reach the server — saved locally." });
+              }
             }
           } catch (err) {
             console.warn("Network error saving contact", err);
@@ -72,15 +87,18 @@ const ComingSoon = () => {
       toast({ title: "Invalid phone number", description: "Please enter a valid Vietnamese phone number." });
       return;
     }
+    
+    const oldPhone = fromPhone && fromPhone !== toSend ? fromPhone : null;
+    
     // persist locally so user sees they're registered after reload
     try {
       localStorage.setItem("preferredPhone", toSend);
-      setFromPhone(toSend);
     } catch (e) {
       // ignore storage errors
     }
 
     // optimistic UI
+    setFromPhone(toSend);
     setIsSubmitted(true);
     toast({
       title: "You're on the list! 🎉",
@@ -90,19 +108,34 @@ const ComingSoon = () => {
     // send phone to backend if available (best-effort) and report failures
     (async () => {
       try {
-        const res = await fetch("https://vanngon.onrender.com/api/save-contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ phone: toSend, source }),
-        });
-        if (!res.ok) {
-          console.warn("Failed to save contact", await res.text());
-          toast({ title: "Saved locally", description: "Could not reach the server — saved locally." });
+        // If there was an old phone, use update endpoint to replace it
+        if (oldPhone) {
+          const res = await fetch("https://vanngon.onrender.com/api/update-contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ oldPhone, newPhone: toSend, source }),
+          });
+          if (!res.ok) {
+            console.warn("Failed to update contact", await res.text());
+            toast({ title: "Saved locally", description: "Could not reach the server — saved locally." });
+          }
+        } else {
+          const res = await fetch("https://vanngon.onrender.com/api/save-contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ phone: toSend, source }),
+          });
+          if (!res.ok) {
+            console.warn("Failed to save contact", await res.text());
+            toast({ title: "Saved locally", description: "Could not reach the server — saved locally." });
+          }
         }
       } catch (err) {
         console.warn("Network error saving contact", err);
         toast({ title: "Saved locally", description: "Could not reach the server — saved locally." });
       }
+    })();
+  };
     })();
   };
 
@@ -149,43 +182,38 @@ const ComingSoon = () => {
             </p>
           )}
 
-          {/* Email form */}
+          {/* Phone form */}
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               {fromPhone && (
-                <p className="text-sm text-primary-foreground/80 mb-2">Số điện thoại đã đăng ký <strong>{fromPhone}</strong></p>
+                <p className="text-sm text-primary-foreground/80 mb-2 w-full text-center sm:text-left">
+                  Đang sửa số: <strong>{fromPhone}</strong>
+                </p>
               )}
-              {!fromPhone ? (
-                <>
-                  <div className="relative flex-1">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                    <input
-                      type="tel"
-                      inputMode="tel"
-                      value={phone}
-                      onChange={(e) => {
-                        // allow only digits and plus at the start
-                        let val = e.target.value;
-                        if (val.startsWith('+')) {
-                          val = '+' + val.slice(1).replace(/\D/g, "");
-                        } else {
-                          val = val.replace(/\D/g, "");
-                        }
-                        setPhone(val);
-                      }}
-                      placeholder="Nhập số điện thoại của bạn"
-                      className="w-full h-14 pl-12 pr-4 rounded-xl bg-card text-foreground placeholder:text-muted-foreground shadow-card focus:outline-none focus:ring-2 focus:ring-secondary"
-                      required
-                    />
-                  </div>
-                  <Button type="submit" variant="warm" size="lg" disabled={!phone || !isValidVietnamesePhone(phone)}>
-                    Thông báo cho tôi
-                  </Button>
-                </>
-              ) : (
-                // if phone already provided, do not show placeholder nor the notify button
-                <div className="flex-1" />
-              )}
+              <div className="relative flex-1">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <input
+                  type="tel"
+                  inputMode="tel"
+                  value={phone}
+                  onChange={(e) => {
+                    // allow only digits and plus at the start
+                    let val = e.target.value;
+                    if (val.startsWith('+')) {
+                      val = '+' + val.slice(1).replace(/\D/g, "");
+                    } else {
+                      val = val.replace(/\D/g, "");
+                    }
+                    setPhone(val);
+                  }}
+                  placeholder="Nhập số điện thoại của bạn"
+                  className="w-full h-14 pl-12 pr-4 rounded-xl bg-card text-foreground placeholder:text-muted-foreground shadow-card focus:outline-none focus:ring-2 focus:ring-secondary"
+                  required
+                />
+              </div>
+              <Button type="submit" variant="warm" size="lg" disabled={!phone || !isValidVietnamesePhone(phone)}>
+                {fromPhone ? "Cập nhật" : "Thông báo cho tôi"}
+              </Button>
             </form>
           ) : (
             <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
@@ -195,9 +223,24 @@ const ComingSoon = () => {
               <h2 className="text-2xl font-bold text-primary-foreground mb-2">
                 Bạn đã có trong danh sách!
               </h2>
-              <p className="text-primary-foreground/80">
+              <p className="text-primary-foreground/80 mb-2">
                 Chúng tôi sẽ gửi SMS cho bạn khi Vẫn Ngon ra mắt tại Hà Nội. Hãy sẵn sàng để tiết kiệm!
               </p>
+              {fromPhone && (
+                <p className="text-sm text-primary-foreground/60 mb-4">
+                  Số điện thoại: <strong>{fromPhone}</strong>
+                </p>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setPhone(fromPhone);
+                }}
+                className="text-sm text-primary-foreground/70 hover:text-primary-foreground underline underline-offset-2 transition-colors"
+              >
+                Sửa số điện thoại
+              </button>
             </div>
           )}
 

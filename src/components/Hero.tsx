@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const [phoneInput, setPhoneInput] = useState("");
   const [fromPhone, setFromPhone] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
 
   const vnd = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND", maximumFractionDigits: 0 });
@@ -54,17 +55,27 @@ const Hero = () => {
   }
 
   function handleFind() {
-    const p = fromPhone || phoneInput;
+    // If not editing and already registered, just navigate
+    if (fromPhone && !isEditing) {
+      navigate("/coming-soon", { state: { phone: fromPhone, source: "hero" } });
+      return;
+    }
+    
+    const p = phoneInput;
     if (!p?.trim() || !isValidVietnamesePhone(p.trim())) {
       alert("Vui lòng nhập số điện thoại Việt Nam hợp lệ.");
       return;
     }
+    
+    const oldPhone = isEditing ? fromPhone : null;
     try {
       localStorage.setItem("preferredPhone", p.trim());
     } catch (e) {
       // ignore
     }
-    const payload = { phone: p.trim(), source: "hero" };
+    const payload = { phone: p.trim(), source: "hero", oldPhone };
+    setFromPhone(p.trim());
+    setIsEditing(false);
     navigate("/coming-soon", { state: payload });
   }
 
@@ -100,8 +111,20 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1 max-w-md">
                 <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                {fromPhone ? (
-                  <div className="h-14 flex items-center px-4 rounded-xl text-foreground">Đã đăng ký: <strong>{fromPhone}</strong></div>
+                {fromPhone && !isEditing ? (
+                  <div className="h-14 flex items-center justify-between px-4 rounded-xl bg-card text-foreground">
+                    <span>Đã đăng ký: <strong>{fromPhone}</strong></span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsEditing(true);
+                        setPhoneInput(fromPhone);
+                      }}
+                      className="text-sm text-primary hover:underline ml-2"
+                    >
+                      Sửa
+                    </button>
+                  </div>
                 ) : (
                   <input
                     type="tel"
@@ -128,9 +151,9 @@ const Hero = () => {
                 className="gap-2"
                 onClick={() => handleFind()}
                 type="button"
-                disabled={!(fromPhone || (phoneInput && isValidVietnamesePhone(phoneInput)))}
+                disabled={!((fromPhone && !isEditing) || (phoneInput && isValidVietnamesePhone(phoneInput)))}
               >
-                Đăng ký <ArrowRight className="w-5 h-5" />
+                {isEditing ? "Cập nhật" : "Đăng ký"} <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
 
