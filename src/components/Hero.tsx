@@ -112,7 +112,7 @@ const Hero = () => {
               </div>
 
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
-                <strong>Đăng ký ngay</strong> để nhận thông báo qua Zalo khi chúng mình ra mắt thử nghiệm vào tháng 01 năm 2026 — <span className="text-secondary font-semibold">số lượng người dùng giới hạn!</span>
+                <strong>Đăng ký ngay</strong> để nhận thông báo qua Zalo khi chúng mình ra mắt thử nghiệm vào cuối tháng 01 năm 2026 — <span className="text-secondary font-semibold">số lượng người dùng giới hạn!</span>
               </p>
             </div>
 
