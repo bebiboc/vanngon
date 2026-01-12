@@ -102,7 +102,7 @@ const Hero = () => {
             
             <div className="space-y-4 max-w-lg">
               <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed">
-                Giải cứu thực phẩm cuối ngày — từ rau, thịt, hoa quả đến bánh ngọt — từ các quán bạn yêu thích tại Hà Nội, đồng thời chung tay giảm lãng phí thực phẩm.
+                Giải cứu thực phẩm cuối ngày — từ rau, thịt, hoa quả đến bánh ngọt — từ các quán uy tín & đạt chuẩn tại Hà Nội, đồng thời chung tay giảm lãng phí thực phẩm.
               </p>
 
               <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-4 border-l-4 border-secondary">
@@ -177,7 +177,7 @@ const Hero = () => {
                 ))}
               </div>
               <p className="text-primary-foreground/80 text-sm">
-                <span className="font-bold text-primary-foreground">300+</span> túi thực phẩm dự kiến sẽ được cứu trong tháng tới
+                <span className="font-bold text-primary-foreground">150+</span> túi thực phẩm dự kiến sẽ được cứu trong tháng tới
               </p>
             </div>
           </div>

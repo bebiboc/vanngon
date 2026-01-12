@@ -164,7 +164,7 @@ const ComingSoon = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-secondary rounded-full px-4 py-2 text-secondary-foreground text-sm font-medium mb-6">
             <Bell className="w-4 h-4" />
-            Ra mắt tháng 01 năm 2026
+            Ra mắt cuối tháng 01 năm 2026
           </div>
 
           {/* Heading */}
@@ -268,11 +268,11 @@ const ComingSoon = () => {
               <p className="text-sm text-primary-foreground/70">Người đang chờ</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">10+</p>
+              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">5+</p>
               <p className="text-sm text-primary-foreground/70">Cửa hàng đối tác</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">2</p>
+              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">1</p>
               <p className="text-sm text-primary-foreground/70">Thành phố sắp ra mắt</p>
             </div>
           </div>
