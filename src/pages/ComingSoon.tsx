@@ -261,11 +261,11 @@ const ComingSoon = () => {
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mt-16">
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">100+</p>
-              <p className="text-sm text-primary-foreground/70">Người đang chờ</p>
+              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">50+</p>
+              <p className="text-sm text-primary-foreground/70">Túi thực phẩm bất ngờ</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">5+</p>
+              <p className="text-3xl md:text-4xl font-bold text-primary-foreground">10+</p>
               <p className="text-sm text-primary-foreground/70">Cửa hàng đối tác</p>
             </div>
             <div className="text-center">
