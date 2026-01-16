@@ -106,13 +106,14 @@ const Hero = () => {
               </p>
 
               <div className="flex items-center gap-3 text-primary-foreground/70">
+                <span className="text-base md:text-lg leading-relaxed">Mỗi túi chứa thực phẩm ngẫu nhiên — bạn chỉ được chọn trước nhóm/loại thực phẩm (</span>
                 <div className="flex items-center gap-2">
                   <Carrot className="w-5 h-5" />
                   <Beef className="w-5 h-5" />
                   <Apple className="w-5 h-5" />
                   <Cookie className="w-5 h-5" />
-                </div>
-                <span className="text-base md:text-lg leading-relaxed">Cùng chung tay giảm lãng phí thực phẩm.</span>
+                </div>  <span className="text-base md:text-lg leading-relaxed">)</span>
+
               </div>
 
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed pt-2">

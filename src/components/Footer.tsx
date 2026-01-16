@@ -1,4 +1,4 @@
-import { Leaf, Instagram, Twitter, Facebook } from "lucide-react";
+import { Leaf, Carrot, Beef, Apple, Cookie } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -14,6 +14,12 @@ const Footer = () => {
               <span className="text-lg font-bold">Vẫn Ngon</span>
             </a>
             <p className="text-sm text-background/70 hidden md:block">Cùng tham gia phong trào chống lãng phí thực phẩm.</p>
+             <div className="flex items-center gap-2">
+                  <Carrot className="w-5 h-5" />
+                  <Beef className="w-5 h-5" />
+                  <Apple className="w-5 h-5" />
+                  <Cookie className="w-5 h-5" />
+                </div>
           </div>
 
           <div>
