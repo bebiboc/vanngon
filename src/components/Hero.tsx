@@ -1,4 +1,4 @@
-import { MapPin, ArrowRight, Carrot, Beef, Apple, Cookie } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -95,10 +95,9 @@ const Hero = () => {
               Sắp ra mắt tại Hà Nội
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-[1.1] tracking-tight">
-              Mua túi thực phẩm bất ngờ,
-              <br />
-              <span className="text-secondary drop-shadow-sm">rẻ hơn đến 70%</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight text-balance">
+              Mua túi thực phẩm bất ngờ,{" "}
+              <span className="text-secondary">rẻ hơn đến 70%</span>
             </h1>
             
             <div className="space-y-4 max-w-lg">
@@ -106,17 +105,9 @@ const Hero = () => {
                 Giải cứu thực phẩm cuối ngày còn ngon, còn tươi — từ các quán được chọn lọc kỹ lưỡng tại Hà Nội.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3 text-primary-foreground/80">
-                <span className="text-base md:text-lg leading-relaxed">
-                  Mỗi túi chứa thực phẩm ngẫu nhiên — bạn được chọn trước nhóm/loại thực phẩm
-                </span>
-                <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-foreground/10 backdrop-blur-sm">
-                  <Carrot className="w-5 h-5 text-primary-foreground/80" />
-                  <Beef className="w-5 h-5 text-primary-foreground/80" />
-                  <Apple className="w-5 h-5 text-primary-foreground/80" />
-                  <Cookie className="w-5 h-5 text-primary-foreground/80" />
-                </div>
-              </div>
+              <p className="text-base md:text-lg leading-relaxed text-primary-foreground/80">
+                Mỗi túi chứa thực phẩm ngẫu nhiên — bạn được chọn trước nhóm/loại thực phẩm 🥕🥩🍎🍪
+              </p>
 
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed pt-2">
                 <strong>Đăng ký ngay</strong> để được đơn hàng đầu tiên miễn phí khi chúng mình ra mắt vào tháng 02 này — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
