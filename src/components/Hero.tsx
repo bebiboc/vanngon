@@ -105,15 +105,18 @@ const Hero = () => {
                 Giải cứu thực phẩm cuối ngày còn ngon, còn tươi — từ các quán được chọn lọc kỹ lưỡng tại Hà Nội.
               </p>
 
-              <div className="space-y-2">
-                <p className="text-base md:text-lg leading-relaxed text-primary-foreground/70">
-                  Mỗi túi chứa thực phẩm ngẫu nhiên — bạn chỉ được chọn trước nhóm/loại thực phẩm:
+              <div className="flex flex-col gap-3">
+                <p className="text-base md:text-lg leading-relaxed text-primary-foreground/80">
+                  Mỗi túi chứa thực phẩm ngẫu nhiên — bạn chỉ được chọn trước nhóm/loại thực phẩm
                 </p>
-                <div className="flex items-center gap-2 text-primary-foreground/70">
-                  <Carrot className="w-5 h-5" />
-                  <Beef className="w-5 h-5" />
-                  <Apple className="w-5 h-5" />
-                  <Cookie className="w-5 h-5" />
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-foreground/10 backdrop-blur-sm">
+                    <Carrot className="w-5 h-5 text-primary-foreground/80" />
+                    <Beef className="w-5 h-5 text-primary-foreground/80" />
+                    <Apple className="w-5 h-5 text-primary-foreground/80" />
+                    <Cookie className="w-5 h-5 text-primary-foreground/80" />
+                  </div>
+                  <span className="text-sm text-primary-foreground/60">Rau củ · Thịt · Trái cây · Tráng Miệng</span>
                 </div>
               </div>
 
