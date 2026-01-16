@@ -133,13 +133,13 @@ const BrowseStores = () => {
       <div className="container">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
-            Ra mắt vào tháng 01 năm 2026
+            Ra mắt vào tháng 02 năm 2026
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Khám phá các túi thực phẩm bất ngờ
+            Xem trước các túi thực phẩm bất ngờ
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Khám phá những deal hấp dẫn từ các quán ăn địa phương trong khu vực của bạn
+            🎁 Đây là ví dụ minh hoạ — mỗi túi là một bất ngờ khác nhau trong ngày
           </p>
         </div>
 

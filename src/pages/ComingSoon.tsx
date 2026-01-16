@@ -164,7 +164,7 @@ const ComingSoon = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-secondary rounded-full px-4 py-2 text-secondary-foreground text-sm font-medium mb-6">
             <Bell className="w-4 h-4" />
-            Ra mắt cuối tháng 01 năm 2026
+            Ra mắt cuối tháng 02 năm 2026
           </div>
 
           {/* Heading */}
@@ -175,21 +175,18 @@ const ComingSoon = () => {
           {!isSubmitted && (
             <div className="space-y-6 mb-10 max-w-2xl mx-auto">
               <div className="bg-secondary/20 backdrop-blur-sm rounded-2xl p-6 border border-secondary/30">
-                <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
-                  <span className="text-2xl mr-2">⚠️</span>
-                  <strong>Lưu ý:</strong> Các túi thực phẩm bất ngờ hiển thị chỉ là ví dụ — hiện tại bạn cần đăng ký để được mở quyền mua khi ra mắt.
+                <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed mb-3">
+                  <span className="text-2xl mr-2">🎁</span>
+                  <strong>Đăng ký ngay</strong> để được đơn hàng đầu tiên miễn phí khi chúng mình ra mắt vào tháng 02 này!
+                </p>
+                <p className="text-base text-primary-foreground/80 leading-relaxed">
+                  Giới hạn <strong className="text-secondary">100 người đầu tiên</strong>.
                 </p>
               </div>
               
-              <div className="space-y-4">
-                <p className="text-lg md:text-xl text-primary-foreground font-semibold">
-                  🎯 Số lượng người dùng giới hạn!
-                </p>
+              <div className="space-y-3">
                 <p className="text-base md:text-lg text-primary-foreground/80 leading-relaxed">
-                  Hãy là những người đầu tiên tiết kiệm thực phẩm ngon và giảm lãng phí ở Hà Nội.
-                </p>
-                <p className="text-base md:text-lg text-primary-foreground/80 leading-relaxed">
-                 Đăng ký và nhận thông báo qua Zalo khi chúng mình ra mắt.
+                  Chúng mình sẽ gửi thông báo qua SMS hoặc Zalo khi ra mắt, giúp bạn cứu thực phẩm còn tươi ngon mỗi ngày.
                 </p>
               </div>
             </div>
@@ -239,7 +236,7 @@ const ComingSoon = () => {
                 Bạn đã có trong danh sách!
               </h2>
               <p className="text-primary-foreground/80 mb-2">
-                Chúng tôi sẽ gửi SMS cho bạn khi Vẫn Ngon ra mắt tại Hà Nội. Hãy sẵn sàng để tiết kiệm!
+                Chúng tôi sẽ gửi SMS hoặc Zalo cho bạn khi Vẫn Ngon ra mắt tại Hà Nội. Hãy sẵn sàng để tiết kiệm!
               </p>
               {fromPhone && (
                 <p className="text-sm text-primary-foreground/60 mb-4">
