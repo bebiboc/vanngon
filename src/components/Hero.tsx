@@ -96,7 +96,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight text-balance">
-              Mua thực phẩm ngon,{" "}
+              Mua túi thực phẩm bất ngờ,{" "}
               <span className="text-secondary">rẻ hơn đến 70%</span>
             </h1>
             
@@ -112,10 +112,10 @@ const Hero = () => {
                   <Apple className="w-5 h-5" />
                   <Cookie className="w-5 h-5" />
                 </div>
-                <span className="text-base md:text-lg leading-relaxed">— cùng chung tay giảm lãng phí thực phẩm.</span>
+                <span className="text-base md:text-lg leading-relaxed">Cùng chung tay giảm lãng phí thực phẩm.</span>
               </div>
 
-              <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
+              <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed pt-2">
                 <strong>Đăng ký ngay</strong> để được đơn hàng đầu tiên miễn phí khi chúng mình ra mắt vào tháng 02 này — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
               </p>
             </div>
@@ -194,6 +194,7 @@ const Hero = () => {
                   <img src={sampleStores[0].image} alt={sampleStores[0].name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <p className="font-semibold text-foreground text-sm">{sampleStores[0].name}</p>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-secondary/15 text-secondary text-xs font-medium mb-1">🎁 Túi bất ngờ</span>
                 <p className="text-muted-foreground text-xs">{sampleStores[0].shop}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-primary font-bold text-xs">{vnd.format(sampleStores[0].discount)}</span>
@@ -206,6 +207,7 @@ const Hero = () => {
                   <img src={sampleStores[1].image} alt={sampleStores[1].name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <p className="font-semibold text-foreground text-sm">{sampleStores[1].name}</p>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-secondary/15 text-secondary text-xs font-medium mb-1">🎁 Túi bất ngờ</span>
                 <p className="text-muted-foreground text-xs">{sampleStores[1].shop}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-primary font-bold text-xs">{vnd.format(sampleStores[1].discount)}</span>
@@ -218,6 +220,7 @@ const Hero = () => {
                   <img src={sampleStores[2].image} alt={sampleStores[2].name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <p className="font-semibold text-foreground text-sm">{sampleStores[2].name}</p>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-secondary/15 text-secondary text-xs font-medium mb-1">🎁 Túi bất ngờ</span>
                 <p className="text-muted-foreground text-xs">{sampleStores[2].shop}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-primary font-bold text-xs">{vnd.format(sampleStores[2].discount)}</span>

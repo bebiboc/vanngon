@@ -12,7 +12,7 @@ const steps = [
     icon: CreditCard,
     number: "02",
     title: "Đặt túi bất ngờ",
-    description: "Xác nhận tin nhắn và chọn danh mục bạn thích — Thịt, Rau củ, Trái cây, Tráng miệng.",
+    description: "Xác nhận tin nhắn và chọn danh mục bạn thích (Thịt, Rau củ, Trái cây, Tráng miệng) — nội dung túi sẽ ngẫu nhiên do quán lựa chọn.",
     badge: "Miễn phí đơn đầu tiên",
   },
   {
