@@ -62,7 +62,7 @@ const Hero = () => {
               </p>
 
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed pt-2">
-                <strong>Nhắn tin ngay</strong> để nhận thông tin và được ưu đãi đơn hàng đầu tiên miễn phí khi chúng mình ra mắt tháng 02 — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
+                <strong>Nhắn tin ngay</strong> để nhận thông tin chi tiết và ưu đãi đơn hàng đầu tiên miễn phí — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
               </p>
             </div>
 

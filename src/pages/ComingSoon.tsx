@@ -43,18 +43,13 @@ const ComingSoon = () => {
             <div className="bg-secondary/20 backdrop-blur-sm rounded-2xl p-6 border border-secondary/30">
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed mb-3">
                 <span className="text-2xl mr-2">🎁</span>
-                <strong>Nhắn tin ngay</strong> để nhận thông tin chi tiết và được ưu đãi đơn hàng đầu tiên miễn phí khi chúng mình ra mắt tháng 02 này!
+                <strong>Nhắn tin ngay</strong> để nhận thông tin chi tiết và ưu đãi đơn hàng đầu tiên miễn phí!
               </p>
               <p className="text-base text-primary-foreground/80 leading-relaxed">
                 Giới hạn <strong className="text-secondary">100 người đầu tiên</strong>.
               </p>
             </div>
             
-            <div className="space-y-3">
-              <p className="text-base md:text-lg text-primary-foreground/80 leading-relaxed">
-                Chúng mình sẽ thông báo qua Messenger khi ra mắt, giúp bạn cứu thực phẩm còn tươi ngon mỗi ngày.
-              </p>
-            </div>
           </div>
 
           {/* Messenger CTA */}
