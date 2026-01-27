@@ -22,10 +22,16 @@ const Footer = () => {
                 </div>
           </div>
 
-          <div>
+          <div className="text-center md:text-right">
+            <p className="text-sm text-background/80 mb-1">
+              <strong>Bạn là chủ/ quản lý quán?</strong>
+            </p>
+            <p className="text-xs text-background/60 mb-2">
+              Chúng tôi hợp tác với các doanh nghiệp.
+            </p>
             <Link
               to="/contact"
-              className="inline-block px-4 py-2 rounded-md bg-background/10 hover:bg-background/20 transition-colors text-sm"
+              className="inline-block px-4 py-2 rounded-md bg-background/10 hover:bg-background/20 transition-colors text-sm font-medium"
             >
               Liên hệ
             </Link>

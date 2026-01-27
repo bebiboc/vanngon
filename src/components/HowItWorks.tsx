@@ -5,7 +5,7 @@ const steps = [
     icon: Search,
     number: "01",
     title: "Nhận thông báo",
-    description: "Bạn sẽ nhận SMS hoặc Zalo về các quán có thực phẩm ngon còn dư trong ngày.",
+    description: "Bạn sẽ nhận thông tin qua Messenger về các quán có thực phẩm ngon còn dư trong ngày.",
     badge: null,
   },
   {

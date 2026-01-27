@@ -1,14 +1,9 @@
-import { MapPin, ArrowRight } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
+const MESSENGER_LINK = "https://www.facebook.com/messages/t/vanngonvn/";
 
 const Hero = () => {
-  const [phoneInput, setPhoneInput] = useState("");
-  const [fromPhone, setFromPhone] = useState("");
-  const [isEditing, setIsEditing] = useState(false);
-  const navigate = useNavigate();
-
   const vnd = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND", maximumFractionDigits: 0 });
 
   // Sample stores from BrowseStores (use images instead of emojis)
@@ -35,49 +30,6 @@ const Hero = () => {
       discount: 68000,
     },
   ];
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("preferredPhone");
-      if (stored) setFromPhone(stored);
-    } catch (e) {
-      // ignore localStorage access errors (e.g., SSR or blocked storage)
-    }
-  }, []);
-
-
-
-  // Vietnamese phone: starts with 0, 10 digits, or +84 and 9 digits
-  // Vietnamese phone: starts with 0 or +84, followed by 3,5,7,8,9 and 8 digits
-  // Valid prefixes: 03, 05, 07, 08, 09 or +843, +845, +847, +848, +849
-  function isValidVietnamesePhone(phone: string) {
-    return /^((\+84|0)(3|5|7|8|9)\d{8})$/.test(phone);
-  }
-
-  function handleFind() {
-    // If not editing and already registered, just navigate
-    if (fromPhone && !isEditing) {
-      navigate("/coming-soon", { state: { phone: fromPhone, source: "hero" } });
-      return;
-    }
-    
-    const p = phoneInput;
-    if (!p?.trim() || !isValidVietnamesePhone(p.trim())) {
-      alert("Vui lòng nhập số điện thoại Việt Nam hợp lệ.");
-      return;
-    }
-    
-    const oldPhone = isEditing ? fromPhone : null;
-    try {
-      localStorage.setItem("preferredPhone", p.trim());
-    } catch (e) {
-      // ignore
-    }
-    const payload = { phone: p.trim(), source: "hero", oldPhone };
-    setFromPhone(p.trim());
-    setIsEditing(false);
-    navigate("/coming-soon", { state: payload });
-  }
 
   return (
     <section className="relative min-h-[90vh] flex items-center gradient-hero overflow-visible pb-16">
@@ -110,60 +62,27 @@ const Hero = () => {
               </p>
 
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed pt-2">
-                <strong>Đăng ký ngay</strong> để được đơn hàng đầu tiên miễn phí khi chúng mình ra mắt vào tháng 02 này — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
+                <strong>Nhắn tin ngay</strong> để nhận thông tin chi tiết và được ưu đãi đơn hàng đầu tiên miễn phí khi chúng mình ra mắt tháng 02 — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="relative flex-1 max-w-md">
-                <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                {fromPhone && !isEditing ? (
-                  <div className="h-14 flex items-center justify-between pl-12 pr-4 text-primary-foreground">
-                    <span>Đã đăng ký: <strong>{fromPhone}</strong></span>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsEditing(true);
-                        setPhoneInput(fromPhone);
-                      }}
-                      className="text-sm text-secondary hover:underline ml-2"
-                    >
-                      Sửa
-                    </button>
-                  </div>
-                ) : (
-                  <input
-                    id="hero-phone"
-                    name="phone"
-                    type="tel"
-                    inputMode="tel"
-                    autoComplete="tel"
-                    value={phoneInput}
-                    onChange={(e) => {
-                      // allow only digits and plus at the start
-                      let val = e.target.value;
-                      if (val.startsWith('+')) {
-                        val = '+' + val.slice(1).replace(/\D/g, "");
-                      } else {
-                        val = val.replace(/\D/g, "");
-                      }
-                      setPhoneInput(val);
-                    }}
-                    placeholder="Nhập số điện thoại của bạn"
-                    className="w-full h-14 pl-12 pr-4 rounded-xl bg-card text-foreground placeholder:text-muted-foreground shadow-card focus:outline-none focus:ring-2 focus:ring-secondary"
-                  />
-                )}
-              </div>
-              <Button
-                variant="warm"
-                size="lg"
-                className="gap-2"
-                onClick={() => handleFind()}
-                type="button"
-                disabled={!((fromPhone && !isEditing) || (phoneInput && isValidVietnamesePhone(phoneInput)))}
+              <a
+                href={MESSENGER_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
               >
-                {isEditing ? "Cập nhật" : "Đăng ký"} <ArrowRight className="w-5 h-5" />
-              </Button>
+                <Button
+                  variant="warm"
+                  size="lg"
+                  className="gap-2 w-full sm:w-auto"
+                  type="button"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Nhắn tin Messenger <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
             </div>
 
             <div className="flex items-center gap-6 pt-4 pb-6">

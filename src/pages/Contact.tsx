@@ -13,6 +13,18 @@ const Contact = () => {
 
         <div className="space-y-4">
           <div>
+            <h3 className="font-semibold">Messenger</h3>
+            <a
+              href="https://www.facebook.com/messages/t/vanngonvn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Nhắn tin trên Messenger
+            </a>
+          </div>
+
+          <div>
             <h3 className="font-semibold">Email</h3>
             <a
               href={`mailto:${email}`}
