@@ -17,8 +17,10 @@
     <meta name="twitter:title" content="Vẫn Ngon - Giải cứu thực phẩm từ các quán ăn, tiệm bánh và siêu thị" />
     <meta name="twitter:description" content="Giải cứu thực phẩm cuối ngày từ các quán ăn, tiệm bánh và siêu thị với giá giảm tới 70%. Chống lãng phí thực phẩm trong khi thưởng thức món ngon." />
     <meta name="twitter:image" content="https://www.vanngon.com/images/preview.png" />
-    
     <link rel="canonical" href="https://www.vanngon.com" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>">
 
     <!-- Preload critical font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,6 +30,7 @@
 
     <!-- Critical CSS for immediate above-the-fold paint -->
     <style>
+      /* Critical above-the-fold styles - renders before JS loads */
       :root {
         --background: 40 30% 97%;
         --foreground: 150 30% 15%;
@@ -77,7 +80,8 @@
         align-items: center;
         gap: 0.5rem;
         background: hsla(0, 0%, 100%, 0.1);
-        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+                backdrop-filter: blur(8px);
         border-radius: 9999px;
         padding: 0.5rem 1rem;
         color: hsla(0, 0%, 100%, 0.9);
@@ -146,6 +150,7 @@
         color: hsl(var(--foreground));
         box-shadow: 0 8px 30px -8px hsla(150, 30%, 20%, 0.12);
       }
+      .hero-input::-moz-placeholder { color: hsl(150 10% 45%); }
       .hero-input::placeholder { color: hsl(150 10% 45%); }
       .hero-cta-btn {
         display: inline-flex;
@@ -168,11 +173,11 @@
         transform: translateY(-1px);
         box-shadow: 0 6px 20px -3px hsla(24, 90%, 50%, 0.5);
       }
+      /* Hide shell when React mounts */
       #root:not(:empty) + #hero-shell { display: none; }
     </style>
-
-    <script type="module" crossorigin src="/assets/index-D4xo9quA.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DATahCOj.css">
+    <script type="module" crossorigin src="/assets/index-OaFG3uXw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CD_2pGG6.css">
   </head>
 
   <body>
@@ -206,9 +211,11 @@
         </div>
       </div>
     </div>
+
     
     <!-- GitHub Pages SPA handling -->
     <script>
+      // Restore the path after 404 redirect
       const redirect = sessionStorage.getItem('redirect');
       if (redirect) {
         sessionStorage.removeItem('redirect');
