@@ -1,4 +1,4 @@
-import { ArrowLeft, Bell, Sparkles, MessageCircle } from "lucide-react";
+import { Leaf, ArrowLeft, Bell, Sparkles, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -24,12 +24,8 @@ const ComingSoon = () => {
       <main className="flex-1 flex items-center justify-center px-6">
         <div className="max-w-xl w-full text-center">
           {/* Logo */}
-          <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-white shadow-lg mb-8 animate-float">
-            <img 
-              src="./images/LogoVN_withoutbackground.png" 
-              alt="Vẫn Ngon Logo" 
-              className="w-20 h-20 object-contain"
-            />
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/10 backdrop-blur-sm mb-8 animate-float">
+            <Leaf className="w-10 h-10 text-primary-foreground" />
           </div>
 
           {/* Badge */}
