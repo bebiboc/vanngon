@@ -1,4 +1,3 @@
-import { Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 
@@ -7,9 +6,11 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16">
         <a href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl gradient-hero flex items-center justify-center shadow-soft group-hover:shadow-glow transition-shadow duration-300">
-            <Leaf className="w-5 h-5 text-primary-foreground" />
-          </div>
+          <img 
+            src="/images/LogoVN_withoutbakcground.png" 
+            alt="Vẫn Ngon Logo" 
+            className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+          />
           <span className="text-xl font-bold text-foreground">Vẫn Ngon</span>
         </a>
         
