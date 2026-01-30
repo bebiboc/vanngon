@@ -24,11 +24,11 @@ const ComingSoon = () => {
       <main className="flex-1 flex items-center justify-center px-6">
         <div className="max-w-xl w-full text-center">
           {/* Logo */}
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/10 backdrop-blur-sm mb-8 animate-float">
+          <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-white shadow-lg mb-8 animate-float">
             <img 
               src="./images/LogoVN_withoutbackground.png" 
               alt="Vẫn Ngon Logo" 
-              className="w-16 h-16 object-contain"
+              className="w-20 h-20 object-contain"
             />
           </div>
 

@@ -4,12 +4,12 @@ import { toast } from "@/components/ui/use-toast";
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
-      <div className="container flex items-center justify-between h-16">
+      <div className="container flex items-center justify-between h-20">
         <a href="/" className="group flex items-center">
           <img 
             src="./images/LogoVN_withoutbackground.png" 
             alt="Vẫn Ngon Logo" 
-            className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            className="h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
           />
         </a>
         
