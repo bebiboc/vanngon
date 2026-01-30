@@ -7,7 +7,7 @@ const Header = () => {
       <div className="container flex items-center justify-between h-16">
         <a href="/" className="flex items-center gap-2 group">
           <img 
-            src="/images/LogoVN_withoutbakcground.png" 
+            src="./images/LogoVN_withoutbackground.png" 
             alt="Vẫn Ngon Logo" 
             className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
           />

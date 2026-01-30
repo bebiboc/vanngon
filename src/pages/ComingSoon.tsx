@@ -26,7 +26,7 @@ const ComingSoon = () => {
           {/* Logo */}
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/10 backdrop-blur-sm mb-8 animate-float">
             <img 
-              src="/images/LogoVN_withoutbakcground.png" 
+              src="./images/LogoVN_withoutbackground.png" 
               alt="Vẫn Ngon Logo" 
               className="w-16 h-16 object-contain"
             />
