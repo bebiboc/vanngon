@@ -4,22 +4,22 @@ const steps = [
   {
     icon: Search,
     number: "01",
-    title: "Nhận thông báo",
-    description: "Bạn sẽ nhận thông tin qua Messenger về các quán có thực phẩm ngon còn dư trong ngày.",
+    title: "Xem thông tin",
+    description: "Vẫn Ngon đăng trên trang Facebook các Túi Bất Ngờ gồm thực phẩm ngon còn dư trong ngày từ các quán đối tác.",
     badge: null,
   },
   {
     icon: CreditCard,
     number: "02",
-    title: "Đặt túi bất ngờ",
-    description: "Xác nhận tin nhắn và chọn danh mục bạn thích (Thịt, Rau củ, Trái cây, Tráng miệng) — nội dung túi sẽ ngẫu nhiên do quán lựa chọn.",
+    title: "Đặt hàng",
+    description: "Inbox Facebook Vẫn Ngon để đặt túi bạn muốn. Nội dung túi ngẫu nhiên, do quán lựa chọn từ đồ ăn còn ngon và an toàn.",
     badge: "Miễn phí đơn đầu tiên",
   },
   {
     icon: ShoppingBag,
     number: "03",
     title: "Nhận và thưởng thức",
-    description: "Đến lấy túi thực phẩm tại quán trong khung giờ quy định và mở ra điều bất ngờ thơm ngon đang chờ bạn!",
+    description: "Đến lấy túi trong khung giờ quy định và mở ra điều bất ngờ thơm ngon đang chờ bạn!",
     badge: null,
   },
 ];

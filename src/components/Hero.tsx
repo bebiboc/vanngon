@@ -58,7 +58,7 @@ const Hero = () => {
               </p>
 
               <p className="text-base md:text-lg leading-relaxed text-primary-foreground/80">
-                Dưới dạng túi bất ngờ — bạn được chọn trước nhóm/loại thực phẩm 🥕🥩🍎🍪
+                Dưới dạng túi bất ngờ — bạn được xem trước loại thực phẩm 🥕🥩🍎🍪
               </p>
 
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed pt-2">
