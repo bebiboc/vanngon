@@ -4,8 +4,8 @@ const values = [
   {
     icon: Sparkles,
     emoji: "🥐",
-    title: "Giá cả siêu rẻ",
-    description: "Thưởng thức các thực phẩm ngon từ nhà hàng, tiệm bánh, siêu thị tại Hà Nội giá giảm tới 70%.",
+    title: "Phù hợp túi tiền",
+    description: "Thưởng thức các thực phẩm 1/2 giá gốc từ nhà hàng, tiệm bánh, siêu thị tại Hà Nội.",
     color: "bg-secondary/10 text-secondary",
   },
   {
@@ -18,7 +18,7 @@ const values = [
   {
     icon: ShieldCheck,
     emoji: "🛍️",
-    title: "An toàn & chất lượng cao",
+    title: "An toàn & ngon",
     description: "Chỉ hợp tác với các doanh nghiệp uy tín, được chọn lọc kỹ càng, cam kết tiêu chuẩn an toàn thực phẩm và chất lượng.",
     color: "bg-accent text-accent-foreground",
   },

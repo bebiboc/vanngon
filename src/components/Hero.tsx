@@ -44,12 +44,12 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 text-primary-foreground/90 text-sm">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              Ra mắt tháng 02 tại Hà Nội
+              Ra mắt tháng 03 tại Hà Nội
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight text-balance">
-              Mua túi thực phẩm bất ngờ,{" "}
-              <span className="text-secondary">rẻ hơn đến 70%</span>
+              Cứu thực phẩm,{" "}
+              <span className="text-secondary">cứu đất nước</span>
             </h1>
             
             <div className="space-y-4 max-w-lg">
@@ -58,11 +58,11 @@ const Hero = () => {
               </p>
 
               <p className="text-base md:text-lg leading-relaxed text-primary-foreground/80">
-                Dưới dạng túi bất ngờ — bạn được xem trước loại thực phẩm 🥕🥩🍎🍪
+                Dưới dạng túi bất ngờ 🥕🥩🍎🍪
               </p>
 
               <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed pt-2">
-                <strong>Nhắn tin ngay</strong> để nhận thông tin chi tiết và ưu đãi đơn hàng đầu tiên miễn phí — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
+                <strong>Nhắn tin Facebook ngay</strong> để nhận thông tin chi tiết và ưu đãi đơn hàng đầu tiên miễn phí — <span className="text-primary-foreground font-bold">giới hạn 100 người đầu tiên!</span>
               </p>
             </div>
 
